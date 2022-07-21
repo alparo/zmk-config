@@ -1,0 +1,13 @@
+manifest:
+  remotes:
+    - name: zmkfirmware
+      url-base: https://github.com/zmkfirmware
+    - name: krikun98
+      url-base: https://github.com/krikun98
+  projects:
+    - name: zmk
+      remote: krikun98
+      revision: nrf52833
+      import: app/west.yml
+  self:
+    path: config
