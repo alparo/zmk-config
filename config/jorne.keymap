@@ -9,11 +9,6 @@
 #include <dt-bindings/zmk/bt.h>
 
 #define DEF 0
-#define LWR 1
-#define RSE 2
-#define ADJ 3
-
-#define DEF 0
 #define ARR 1
 #define SYM 2
 #define HK 3
@@ -58,7 +53,7 @@
 //       |  =  |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |     |
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
-   &trans &kp F12   &kp F1   &kp F2 &kp F3   &kp F4   &kp F5           &kp HOME    &kp PG_DOWN   &kp PG_UP   &kp END   &trans  &kp C_VOL_UP &mt RGUI F12
+   &trans &kp F12   &kp F1   &kp F2 &kp F3  &kp F4   &kp F5           &kp HOME    &kp PG_DOWN   &kp PG_UP   &kp END   &trans  &kp C_VOL_UP &mt RGUI F12
           &kp LGUI &kp N1   &kp N2 &kp N3   &kp N4   &kp N5        &kp LEFT &kp DOWN &kp UP &kp RIGHT &trans &kp C_PLAY_PAUSE
           &trans &trans   &trans &trans   &trans   &trans           &kp LC(LEFT) &kp LC(PG_DOWN) &kp LC(PG_UP) &kp LC(RIGHT) &trans &kp C_VOL_DOWN
                                               &trans &trans &trans   &trans &trans &trans
