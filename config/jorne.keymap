@@ -86,7 +86,7 @@
 				
                 hotkeys_layer {
                         bindings = <
-   &trans &kp LC(Z) &kp LG(1) &kp LG(2) &kp LG(3) &kp LG(4) &kp LG(5)         &kp LG(6) &kp LG(7) &kp LG(8) &kp LG(9) &kp LG(0)  &trans &trans
+   &trans &kp LC(Z) &kp LG(N1) &kp LG(N2) &kp LG(N3) &kp LG(N4) &kp LG(N5)         &kp LG(N6) &kp LG(N7) &kp LG(N8) &kp LG(N9) &kp LG(N0)  &trans &trans
           &kp LC(LA(K)) &kp LC(A) &kp LC(X) &kp LC(C) &kp LC(V) &kp LG(V)        &trans &trans &kp LG(S) &kp LG(L) &kp LG(SEMICOLON) &trans
           &kp LC(LA(P)) &kp LS(LG(S)) &kp LG(D) &kp LG(E) &trans  &trans           &trans &trans   &trans &trans   &trans   &trans
                                               &trans &trans &trans   &trans &kp LS(DEL) &lt ADJ DEL
