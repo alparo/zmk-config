@@ -15,7 +15,7 @@
 #define ADJ 4
 
 &mt {
-	flavor = "tap-preferred";
+	flavor = "balanced";
 };
 
 / {
