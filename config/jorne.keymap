@@ -19,7 +19,20 @@
 };
 
 / {
-	
+	    macros {
+			m_dot_space: m_dot_space {
+				label = "DOT_SPACE";
+				compatible = "zmk,behavior-macro";
+				#binding-cells = <0>;
+				bindings = <&kp KP_DOT &kp SPACE>;
+			};
+			m_comma_space: m_comma_space {
+				label = "COMMA_SPACE";
+				compatible = "zmk,behavior-macro";
+				#binding-cells = <0>;
+				bindings = <&kp KP_COMMA &kp SPACE>;
+			};
+		};
 	    behaviors {
 			td0: td_ply_nxt {
 				compatible = "zmk,behavior-tap-dance";
@@ -46,7 +59,7 @@
 				compatible = "zmk,behavior-mod-morph";
 				label = "COMMA_DOT";
 				#binding-cells = <0>;
-				bindings = <&kp COMMA &kp SPACE>, <&kp DOT &kp SPACE>;
+				bindings = <&m_comma_space>, <&m_dot_space>;
 				mods = <(MOD_LSFT|MOD_RSFT)>;
 			};
 		};
