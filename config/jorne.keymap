@@ -28,16 +28,6 @@
             ╰───────────╮ 38  39  40 │ │ 41  42  43 ╭───────────╯
                         ╰────────────╯ ╰────────────╯               */
             compatible = "zmk,combos";
-            combo_rshift {
-                timeout-ms = <50>;
-                key-positions = <21 22>;
-                bindings = <&sk RSHIFT>;
-            };
-            combo_lshift {
-                timeout-ms = <50>;
-                key-positions = <17 18>;
-                bindings = <&sk LSHIFT>;
-            };
             combo_capslock {
                 timeout-ms = <50>;
                 key-positions = <17 18 21 22>;
@@ -81,11 +71,11 @@
                 default_layer {
 // -----------------------------------------------------------------------------------------
 // |  GUI |   ~  |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U   |  I  |  O  |  P  |  [   | GUI/] |
-//        | CTRL |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |CTRL/'|
-//        | LALT |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | RALT |
-//                           | RSE | SPC | LWR |   | LWR | BKSP | RSE |
+//        | LALT |  A  |  S  |  D  |  F  |  G  |   |  H  |  J   |  K  |  L  |  ;  |RALT/'|
+//        | CTRL |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M   |  ,  |  .  |  /  | CTRL |
+//                           |HK/TAB|ARR/LANG| SPC |   |ENTER|SYM/BKSP|HK/DEL|
                         bindings = <
-   &kp LWIN &gresc             &kp Q &kp W &kp E &kp R &kp T &kp Y     &kp U  &kp I     &kp O   &kp P    &kp LBKT 		&mt RWIN RBKT
+   &kp LWIN &gresc             &kp Q &kp W &kp E &kp R &kp T &kp Y      &kp U  &kp I     &kp O   &kp P    &kp LBKT 		&mt RWIN RBKT
         	&mt LALT LA(LC(TAB)) &kp A &kp S &kp D &kp F &kp G &kp H    &kp J  &kp K     &kp L   &kp SEMI &mt RALT SQT
             &mt LCTRL MINUS 	&kp Z &kp X &kp C &kp V &kp B &kp N     &kp M  &kp COMMA &kp DOT &kp FSLH &mt RCTRL BSLH
                         &lt HK TAB &lt ARR LG(SPACE) &mt LSHFT SPACE 	&mt RSHFT ENTER &lt SYM BSPC &lt HK DEL
@@ -100,9 +90,9 @@
 //                          |     |     | ADJ |   | ADJ |     |     |
                         bindings = <
 // ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮   ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-   &none 	&none   &kp EQUAL 		&kp KP_N7 &kp KP_N8 &kp KP_N9 &td1      &kp F6    &kp F7   &kp F8   &kp F9   &kp F10  &kp F11 &kp F12
+   &none 	&none           &kp EQUAL 	&kp KP_N7 &kp KP_N8 &kp KP_N9 &td1      &kp F6    &kp F7   &kp F8   &kp F9   &kp F10  &kp F11 &kp F12
           	&kp KP_ENTER 	&kp COLON	&kp KP_N4 &kp KP_N5 &kp KP_N6 &td2     	    &kp CARET  &kp AMPS   &kp STAR  &kp LPAR  &kp RPAR  &kp BSLH
-          	&kp C_AL_CALC   &kp KP_DOT 		&kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_N0     &kp N6    &kp N7   &kp N8   &kp N9   &kp N0 &none
+          	&kp C_AL_CALC   &kp KP_DOT 	&kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_N0     &kp N6    &kp N7   &kp N8   &kp N9   &kp N0 &none
                                                            &trans &trans &trans   	&trans &trans &kp LS(INS)
                         >;
                 };	
@@ -115,7 +105,7 @@
 //                    | GUI |     | SPC |   | ENT |     | ALT |
                         bindings = <
    &none  &none	&kp F1   &kp F2 &kp F3  &kp F4   &kp F5           	&kp HOME    &kp PG_DN   	&kp PG_UP   &kp END   		&none  &kp C_VOL_UP &trans 
-          &none &kp EXCL &kp AT   &kp HASH  &kp DLLR  &kp PRCNT 	&kp LEFT 	&kp DOWN 		&kp UP 		&kp RIGHT 		&none &td0
+          &none &kp EXCL &kp AT &kp HASH  &kp DLLR  &kp PRCNT 	    &kp LEFT 	&kp DOWN 		&kp UP 		&kp RIGHT 		&none &td0
           &none &kp N1   &kp N2 &kp N3  &kp N4   &kp N5         	&kp LC(LEFT) &kp LC(PG_DN) 	&kp LC(PG_UP) &kp LC(RIGHT) &none &kp C_VOL_DN
                                             &trans &trans &trans   	&trans &trans &trans
                         >;
@@ -123,10 +113,10 @@
 				
                 hotkeys_layer {
                         bindings = <
-   &trans &kp LC(Z) &kp LG(N1) &kp LG(N2) &kp LG(N3) &kp LG(N4) &kp LG(N5)  &kp LG(N6) &kp LG(N7) &kp LG(N8) &kp LG(N9) &kp LG(N0)  &none &trans
-          &kp LC(LA(K)) &kp LC(A) &kp LC(X) &kp LC(C) &kp LC(V) &kp LG(V)   &trans &trans &none &none &none &trans
-          &kp LC(LA(P)) &kp LS(LG(S)) &none &none &none  &none           	&trans &trans   &trans &trans   &trans   &trans
-                                              &trans &trans &trans   		&trans &kp LS(DEL) &lt ADJ DEL
+   &trans &kp LC(Z) &kp LG(N1)      &kp LG(N2)  &kp LG(N3)  &kp LG(N4)  &kp LG(N5)      &kp LG(N6) &kp LG(N7) &kp LG(N8) &kp LG(N9) &kp LG(N0)  &none &trans
+          &trans    &kp LC(A)       &kp LC(X)   &kp LC(C)   &kp LC(V)   &kp LG(V)       &trans &trans &none &none &none &trans
+          &trans    &kp LS(LG(S))   &none       &none   &none  &none           	        &trans &trans &trans &trans   &trans   &trans
+                                                &mo ADJ &trans &trans   		        &trans &kp LS(DEL) &mo ADJ
                         >;
                 };
 
