@@ -62,9 +62,9 @@
                 #binding-cells = <0>;
                 bindings = <&kp ESC>, <&kp GRAVE>;
                 mods = <(MOD_LGUI|MOD_LSFT|MOD_RGUI|MOD_RSFT)>;
-                keep-mods = <(MOD_LSFT)>;
+                keep-mods = <(MOD_LSFT|MOD_RSFT)>;
             };
-            hm: homerow_mods {
+            hrm: homerow_mods {
                 compatible = "zmk,behavior-hold-tap";
                 label = "HOMEROW_MODS";
                 #binding-cells = <2>;
@@ -79,29 +79,29 @@
                 compatible = "zmk,keymap";
 
                 default_layer {
-// -----------------------------------------------------------------------------------------
-// |  GUI |   ~  |  Q  |  W  |  E  |  R  |  T  |   |  Y  |  U  |  I  |  O  |  P  |  [  |  ]  |
-//        | LALT |GUI/A|ALT/S|SFT/D|CTR/F|  G  |   |  H  |CTR/J|SFT/K|ALT/L|GUI/;|  '  |
-//        | CTRL |  Z  |  X  |  C  |  V  |  B  |   |  N  |  M  |  ,  |  .  |  /  |  \  |
-//                           |HK/TAB|ARR/LANG|NUM/SPC|   |NUM/ENTER|ARR/BKSP|HK/DEL|
+// ╭─────┬─────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬─────┬─────╮
+// │ GUI │ESC~ │  Q  │  W  │  E  │  R  │  T  │   │  Y  │  U  │  I  │  O  │  P  │  [  │  ]  │
+// ╰─────│ACTAB│GUI/A│ALT/S│SFT/D│CTR/F│  G  │   │  H  │CTR/J│SFT/K│ALT/L│GUI/;│  '  │─────╯
+//       |  -  │  Z  │  X  │  C  │  V  │  B  │   │  N  │  M  │  ,  │  .  │  /  │  \  │
+//       ╰───────────│HK/TAB│ARR/LANG│NUM/SPC│   │NUM/ENT│ARR/BKSP│HK/DEL│───────────╯
+//                   ╰───────────────────────╯   ╰───────────────────────╯
                         bindings = <
-   &kp LWIN &gresc  &kp Q &kp W &kp E &kp R &kp T &kp Y             &kp U  &kp I     &kp O   &kp P    &kp LBKT 		&kp RBKT
-        	&kp LA(LC(TAB)) &hm LGUI A &hm LALT S &hm LSHIFT D &hm LCTRL F &kp G &kp H &hm RCTRL J &hm RSHIFT K &hm RALT L   &hm RGUI SEMI &kp SQT
-            &kp MINUS 	&kp Z &kp X &kp C &kp V &kp B &kp N         &kp M  &kp COMMA &kp DOT &kp FSLH &kp BSLH
-                        &lt HK TAB &lt ARR LG(SPACE) &lt NUM SPACE 	&lt NUM ENTER &lt ARR BSPC &lt HK DEL
+   &kp LWIN &gresc      &kp Q &kp W &kp E &kp R &kp T &kp Y             &kp U  &kp I        &kp O   &kp P    &kp LBKT   &kp RBKT
+        	&kp LA(LC(TAB)) &hrm LGUI A &hrm LALT S &hrm LSHIFT D &hrm LCTRL F &kp G &kp H &hrm RCTRL J &hrm RSHIFT K &hrm RALT L &hrm RGUI SEMI &kp SQT
+            &kp MINUS 	&kp Z &kp X &kp C &kp V &kp B &kp N             &kp M  &kp COMMA    &kp DOT &kp FSLH &kp BSLH
+                        &lt HK TAB  &lt ARR LG(SPACE) &lt NUM SPACE 	&lt NUM ENTER &lt ARR BSPC &lt HK DEL
                         >;
                 };
 				numbers_layer {
 // -----------------------------------------------------------------------------------------
-// |     |  _  |  F1 |  F2 |  F3 |  F4 |  F5 |   |  F6 |  F7 |  F8 |  F9 | F10 | F11 | F12 |
-//       |  +  |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |  -  |
-//       |  =  |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |     |
-//                    | GUI |     | SPC |   | ENT |     | ALT |
+// |     |     |  F1 |  F2 |  F3 |  F4 |  F5 |   |  F6 |  F7 |  F8 |  F9 | F10 | F11 | F12 |
+//       |     |  !  |  @  |  #  |  $  |  %  |   |  ^  |  &  |  *  |  (  |  )  |  -  |
+//       |     |  1  |  2  |  3  |  4  |  5  |   |  6  |  7  |  8  |  9  |  0  |     |
+//                    |TRANS|TRANS|TRANS|   |TRANS|TRANS|TRANS|
                         bindings = <
-// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮          ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
-   &none  &none	&kp F1   &kp F2 &kp F3  &kp F4   &kp F5           	&kp F6    &kp F7   &kp F8   &kp F9   &kp F10  &kp F11 &kp F12 
-          &none &kp EXCL &kp AT &kp HASH  &kp DLLR  &kp PRCNT 	    &kp CARET  &kp AMPS   &kp STAR  &kp LPAR  &kp RPAR  &kp BSLH
-          &none &kp N1   &kp N2 &kp N3  &kp N4   &kp N5         	&kp N6    &kp N7   &kp N8   &kp N9   &kp N0 &none
+   &none  &none	&kp F1   &kp F2 &kp F3      &kp F4      &kp F5      &kp F6      &kp F7   &kp F8   &kp F9   &kp F10  &kp F11 &kp F12 
+          &none &kp EXCL &kp AT &kp HASH    &kp DLLR    &kp PRCNT 	&kp CARET   &kp AMPS &kp STAR &kp LPAR &kp RPAR &kp MINUS
+          &none &kp N1   &kp N2 &kp N3      &kp N4      &kp N5      &kp N6      &kp N7   &kp N8   &kp N9   &kp N0   &none
                                             &trans &trans &trans   	&trans &trans &kp LS(INS)
                         >;
                 };
@@ -112,7 +112,6 @@
 //       |      |  0  |  1  |  2  |  3  |  .  |   | VOLD| END | DOWN| PGDN| PAUS|     |
 //                          |     |     | ADJ |   | ADJ |     |     |
                         bindings = <
-// ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮          ╭─────────────┬─────────────┬─────────────┬─────────────┬─────────────╮
    &none 	&none           &kp EQUAL 	&kp KP_N7 &kp KP_N8 &kp KP_N9 &td1          &kp HOME    &kp PG_DN   	&kp PG_UP   &kp END   		&none  &kp C_VOL_UP &trans
           	&kp KP_ENTER 	&kp COLON	&kp KP_N4 &kp KP_N5 &kp KP_N6 &td2     	    &kp LEFT 	&kp DOWN 		&kp UP 		&kp RIGHT 		&none &td0
           	&kp C_AL_CALC   &kp KP_DOT 	&kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_N0     &kp LC(LEFT) &kp LC(PG_DN) 	&kp LC(PG_UP) &kp LC(RIGHT) &none &kp C_VOL_DN
@@ -127,7 +126,6 @@
                                                 &mo ADJ &trans &trans   		        &trans &trans &mo ADJ
                         >;
                 };
-
                 adjust_layer {
 // -----------------------------------------------------------------------------------------
 // | RST | BLDR |     |     |     |     |     |   |     |     |     |     |     | BLDR | RST |
@@ -135,10 +133,10 @@
 //       |      |     |     |     |     |     |   |     |     |     |     |     |      |
 //                          |     |     |     |   |     |     |     |
                         bindings = <
-   &reset &bootloader &none        &none        &none        &none        &none        &none        &none        &none        &none        &none         &bootloader &reset
-          &bt BT_CLR  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &bt BT_SEL 4 &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0  &bt BT_CLR
-          &none       &none        &none        &none        &none        &none        &none        &none        &none        &none        &none         &none
-                                                                &trans &none &trans  &trans &none &trans
+   &reset &bootloader &none        &none        &none        &none        &none         &none        &none        &none        &none        &none         &bootloader &reset
+          &bt BT_CLR  &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4  &bt BT_SEL 4 &bt BT_SEL 3 &bt BT_SEL 2 &bt BT_SEL 1 &bt BT_SEL 0  &bt BT_CLR
+          &none       &none        &none        &none        &none        &none         &none        &none        &none        &none        &none         &none
+                                                            &trans &none &trans         &trans &none &trans
                         >;
                 };
         };
