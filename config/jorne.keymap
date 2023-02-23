@@ -19,6 +19,19 @@
 };
 
 / {
+        macros {
+            ZMK_MACRO(colon,
+                wait-ms = <30>;
+                tap-ms = <40>;
+                bindings =
+                    <&macro_press>,
+                    <&kp LALT>,
+                    <&macro_tap>,
+                    <&kp KP_N5 &kp KP_N8>,
+                    <&macro_release>,
+                    <&kp LALT>;
+            )
+        };
         combos {
         /*                KEY POSITIONS
             ╭────────────────────────╮ ╭────────────────────────╮
@@ -78,6 +91,7 @@
         keymap {
                 compatible = "zmk,keymap";
 
+// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
                 default_layer {
 // ╭─────┬─────┬─────┬─────┬─────┬─────┬─────╮   ╭─────┬─────┬─────┬─────┬─────┬─────┬─────╮
 // │ GUI │ESC~ │  Q  │  W  │  E  │  R  │  T  │   │  Y  │  U  │  I  │  O  │  P  │  [  │  ]  │
@@ -92,6 +106,7 @@
                         &lt HK TAB  &lt ARR SPACE &lt NUM SPACE 	&lt NUM ENTER &lt ARR BSPC &lt HK DEL
                         >;
                 };
+// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 				numbers_layer {
 // -----------------------------------------------------------------------------------------
 // |     |     |  F1 |  F2 |  F3 |  F4 |  F5 |   |  F6 |  F7 |  F8 |  F9 | F10 | F11 | F12 |
@@ -105,19 +120,21 @@
                                             &trans &trans &trans   	&trans &trans &kp LS(INS)
                         >;
                 };
+// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
                 arrows_layer {
 // -----------------------------------------------------------------------------------------
-// |     | NMLK |  /  |  7  |  8  |  9  |  -  |   | VOLU| HOME| PRSC| PGUP| SCLK| CLCK|     |
-//       | CTRL |  *  |  4  |  5  |  6  |  +  |   | MUT | LEFT|  UP | RGHT| INS | APP |
-//       |      |  0  |  1  |  2  |  3  |  .  |   | VOLD| END | DOWN| PGDN| PAUS|     |
+// |     |      |  =  |  7  |  8  |  9  | -// |   | VOLU| HOME| PRSC| PGUP| SCLK|     |     |
+//       |  ENT |  :  |  4  |  5  |  6  | +/* |   | MUT | LEFT|  UP | RGHT| INS |     |
+//       | CALC |  .  |  1  |  2  |  3  |  0  |   | VOLD| END | DOWN| PGDN|     |     |
 //                          |     |     | ADJ |   | ADJ |     |     |
                         bindings = <
    &none 	&none           &kp EQUAL 	&kp KP_N7 &kp KP_N8 &kp KP_N9 &td1          &kp HOME    &kp PG_DN   	&kp PG_UP   &kp END   		&none  &kp C_VOL_UP &trans
-          	&kp KP_ENTER 	&kp COLON	&kp KP_N4 &kp KP_N5 &kp KP_N6 &td2     	    &kp LEFT 	&kp DOWN 		&kp UP 		&kp RIGHT 		&none &td0
+          	&kp KP_ENTER 	&colon	    &kp KP_N4 &kp KP_N5 &kp KP_N6 &td2     	    &kp LEFT 	&kp DOWN 		&kp UP 		&kp RIGHT 		&none &td0
           	&kp C_AL_CALC   &kp KP_DOT 	&kp KP_N1 &kp KP_N2 &kp KP_N3 &kp KP_N0     &kp LC(LEFT) &kp LC(PG_DN) 	&kp LC(PG_UP) &kp LC(RIGHT) &none &kp C_VOL_DN
                                                            &trans &trans &trans   	&trans &trans &trans
                         >;
                 };
+// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
                 hotkeys_layer {
                         bindings = <
    &trans &trans    &kp LG(N1)      &kp LG(N2)  &kp LG(N3)  &kp LG(N4)  &kp LG(N5)      &kp LG(N6) &kp LG(N7) &kp LG(N8) &kp LG(N9) &kp LG(N0)  &none &trans
@@ -126,6 +143,7 @@
                                                 &mo ADJ &trans &trans   		        &trans &trans &mo ADJ
                         >;
                 };
+// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
                 adjust_layer {
 // -----------------------------------------------------------------------------------------
 // | RST | BLDR |     |     |     |     |     |   |     |     |     |     |     | BLDR | RST |
