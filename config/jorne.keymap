@@ -46,6 +46,21 @@
                 key-positions = <18 21>;
                 bindings = <&caps_word>;
             };
+            combo_copy {
+                timeout-ms = <50>;
+                key-positions = <28 29>;
+                bindings = <&kp LC(INS)>;
+            };
+            combo_paste {
+                timeout-ms = <50>;
+                key-positions = <29 30>;
+                bindings = <&kp LS(INS)>;
+            };
+            combo_cut {
+                timeout-ms = <50>;
+                key-positions = <28 30>;
+                bindings = <&kp LS(INS)>;
+            };
         };
 	    behaviors {
 			td0: td_ply_nxt {
