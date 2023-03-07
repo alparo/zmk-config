@@ -41,7 +41,7 @@
 ZMK_UNICODE_SINGLE(colon, N0, N0, N5, N8)  // :
 
 // Belarussian letters
-ZMK_UNICODE_PAIR(by_y, KP_N0, KP_N4,  KP_N0, E,    KP_N0, KP_N4,  KP_N5, E,)  // ў/Ў
+ZMK_UNICODE_PAIR(by_y, KP_N0, KP_N4,  KP_N0, E,    KP_N0, KP_N4,  KP_N5, E)  // ў/Ў
 ZMK_UNICODE_PAIR(by_e, KP_N0, KP_N0,  E, KP_N4,    KP_N0, KP_N0,  C, KP_N4)  // ё/Ё
 ZMK_UNICODE_PAIR(by_i, KP_N0, KP_N0,  E, KP_N4,    KP_N0, KP_N0,  C, KP_N4)  // і/І
 
