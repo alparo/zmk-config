@@ -106,7 +106,7 @@ ZMK_LAYER(default,
 //       ╰───────────│HK/TAB│NAV/SPC│NUM/SPC│   │NUM/ENT│NAV/BKSP│HK/DEL│───────────╯
 //                   ╰───────────────────────╯   ╰───────────────────────╯
    &kp LWIN &gresc      &kp Q &kp W &kp E &kp R &kp T &kp Y             &kp U  &kp I        &kp O   &kp P    &kp LBKT   &kp RBKT
-        	&kp LA(LC(TAB)) &hrm LGUI A &hrm LALT S &hrm LSHIFT D &hrm LCTRL F &kp G &kp H &hrm RCTRL J &hrm RSHIFT K &hrm RALT L &hrm RGUI SEMI &kp SQT
+        	&kp LA(LC(TAB)) &hml LGUI A &hml LALT S &hml LSHIFT D &hml LCTRL F &kp G &kp H &hmr RCTRL J &hmr RSHIFT K &hmr RALT L &hmr RGUI SEMI &kp SQT
             &kp MINUS 	&kp Z &kp X &kp C &kp V &kp B &kp N             &kp M  &kp COMMA    &kp DOT &kp FSLH &kp BSLH
                         &lt HK TAB  &lt NAV SPACE &lt NUM SPACE 	&lt NUM ENTER &lt NAV BSPC &lt HK DEL
 )
