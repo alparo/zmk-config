@@ -59,7 +59,7 @@
             combo_cut {
                 timeout-ms = <50>;
                 key-positions = <28 30>;
-                bindings = <&kp LC(X)>;
+                bindings = <&kp LS(DEL)>;
             };
         };
 	    behaviors {
