@@ -10,7 +10,7 @@
 
 #define DEF 0
 #define NUM 1
-#define ARR 2
+#define NAV 2
 #define HK 3
 #define ADJ 4
 
@@ -112,13 +112,13 @@
 // │ GUI │ESC~ │  Q  │  W  │  E  │  R  │  T  │   │  Y  │  U  │  I  │  O  │  P  │  [  │  ]  │
 // ╰─────│ACTAB│GUI/A│ALT/S│SFT/D│CTR/F│  G  │   │  H  │CTR/J│SFT/K│ALT/L│GUI/;│  '  │─────╯
 //       |  -  │  Z  │  X  │  C  │  V  │  B  │   │  N  │  M  │  ,  │  .  │  /  │  \  │
-//       ╰───────────│HK/TAB│ARR/SPC│NUM/SPC│   │NUM/ENT│ARR/BKSP│HK/DEL│───────────╯
+//       ╰───────────│HK/TAB│NAV/SPC│NUM/SPC│   │NUM/ENT│NAV/BKSP│HK/DEL│───────────╯
 //                   ╰───────────────────────╯   ╰───────────────────────╯
                         bindings = <
    &kp LWIN &gresc      &kp Q &kp W &kp E &kp R &kp T &kp Y             &kp U  &kp I        &kp O   &kp P    &kp LBKT   &kp RBKT
         	&kp LA(LC(TAB)) &hrm LGUI A &hrm LALT S &hrm LSHIFT D &hrm LCTRL F &kp G &kp H &hrm RCTRL J &hrm RSHIFT K &hrm RALT L &hrm RGUI SEMI &kp SQT
             &kp MINUS 	&kp Z &kp X &kp C &kp V &kp B &kp N             &kp M  &kp COMMA    &kp DOT &kp FSLH &kp BSLH
-                        &lt HK TAB  &lt ARR SPACE &lt NUM SPACE 	&lt NUM ENTER &lt ARR BSPC &lt HK DEL
+                        &lt HK TAB  &lt NAV SPACE &lt NUM SPACE 	&lt NUM ENTER &lt NAV BSPC &lt HK DEL
                         >;
                 };
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
