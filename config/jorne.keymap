@@ -25,7 +25,7 @@
 };
 
 // colon sign
-//ZMK_UNICODE_SINGLE(colon, N0, N0, N5, N8)  // :
+ZMK_UNICODE_SINGLE(colon, N0, N0, N5, N8)  // :
 
 
 /*  ╭─────────────────────────┬─────────────────────────╮
@@ -43,9 +43,9 @@
 
 ZMK_COMBO(caps_word, &caps_word, LM1 RM1, ALL, COMBO_TERM_SLOW)
 
-ZMK_COMBO(combo_cut,   &kp LS(DEL),   LB3 LB1,     DEF NAV NUM, COMBO_TERM_SLOW)
-ZMK_COMBO(combo_copy,  &kp LC(INS),   LB3 LB2,     DEF NAV NUM, COMBO_TERM_FAST)
-ZMK_COMBO(combo_paste, &kp LS(INS),   LB2 LB1,     DEF NAV NUM, COMBO_TERM_FAST)
+ZMK_COMBO(combo_cut,   &kp LS(DEL),   LB3 LB1,     ALL, COMBO_TERM_SLOW)
+ZMK_COMBO(combo_copy,  &kp LC(INS),   LB3 LB2,     ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_paste, &kp LS(INS),   LB2 LB1,     ALL, COMBO_TERM_FAST)
 
 
 // TAP DANCE
@@ -135,7 +135,7 @@ ZMK_LAYER(navigation,
                                                            &trans &trans &trans   	&trans &trans &trans
 )
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
-ZMK_LAYER(hotkeys
+ZMK_LAYER(hotkeys,
    &trans &trans    &kp LG(N1)      &kp LG(N2)  &kp LG(N3)  &kp LG(N4)  &kp LG(N5)      &kp LG(N6) &kp LG(N7) &kp LG(N8) &kp LG(N9) &kp LG(N0)  &none &trans
           &trans    &kp LC(A)       &kp LC(X)   &kp LC(C)   &kp LC(V)   &kp LG(V)       &trans &trans &none &none &none &trans
           &trans    &none           &none       &none   &none  &none           	        &trans &trans &trans &trans &trans &trans
