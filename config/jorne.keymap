@@ -3,7 +3,7 @@
 #include <dt-bindings/zmk/bt.h>
 
 #include "../zmk-nodefree-config/helper.h"
-#include "../zmk-nodefree-config/international_chars/german.dtsi"
+#include "../zmk-nodefree-config/international_chars/german_alt.dtsi"
 
 /* source keypos definitions */
 #include "../zmk-nodefree-config/keypos_def/keypos_44keys.h"
@@ -38,6 +38,10 @@
 // unicode colon
 ZMK_UNICODE_SINGLE(colon, N0, N0, N5, N8)  // :
 
+// Belarussian letters
+ZMK_UNICODE_PAIR(by_y, N0, N0,  E, N4,    N0, N0,  C, N4)  // ў/Ў
+ZMK_UNICODE_PAIR(by_e, N0, N0,  E, N4,    N0, N0,  C, N4)  // ё/Ё
+ZMK_UNICODE_PAIR(by_i, N0, N0,  E, N4,    N0, N0,  C, N4)  // і/І
 
 /*  ╭─────────────────────────┬─────────────────────────╮
  ╭──╯ LT5 LT4 LT3 LT2 LT1 LT0 │ RT0 RT1 RT2 RT3 RT4 RT5 ╰──╮
