@@ -25,7 +25,7 @@
 };
 
 // colon sign
-ZMK_UNICODE_SINGLE(colon, N5, N8)  // :
+ZMK_UNICODE_SINGLE(colon, N0, N0, N5, N8)  // :
 
 
 /*  ╭─────────────────────────┬─────────────────────────╮
