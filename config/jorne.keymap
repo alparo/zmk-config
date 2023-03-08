@@ -41,9 +41,9 @@
 ZMK_UNICODE_SINGLE(colon, KP_N0, KP_N0, KP_N5, KP_N8)  // :
 
 // Belarussian letters
-ZMK_UNICODE_PAIR(by_y, KP_N0, KP_N4,  KP_N0, E,    KP_N0, KP_N4,  KP_N5, E)  // ў/Ў
-ZMK_UNICODE_PAIR(by_e, KP_N0, KP_N0,  E, KP_N4,    KP_N0, KP_N0,  C, KP_N4)  // ё/Ё
-ZMK_UNICODE_PAIR(by_i, KP_N0, KP_N0,  E, KP_N4,    KP_N0, KP_N0,  C, KP_N4)  // і/І
+ZMK_UNICODE_PAIR(by_y, KP_N0, KP_N2,  KP_N4, KP_N7,    KP_N0, KP_N2,  KP_N4, KP_N6)  // ў/Ў
+ZMK_UNICODE_PAIR(by_e, KP_N0, KP_N2,  KP_N4, KP_N1,    KP_N0, KP_N2,  KP_N4, KP_N0)  // ё/Ё
+ZMK_UNICODE_PAIR(by_i, KP_N0, KP_N1,  KP_N7, KP_N9,    KP_N0, KP_N1,  KP_N7, KP_N8)  // і/І
 
 /*  ╭─────────────────────────┬─────────────────────────╮
  ╭──╯ LT5 LT4 LT3 LT2 LT1 LT0 │ RT0 RT1 RT2 RT3 RT4 RT5 ╰──╮
