@@ -83,8 +83,8 @@ ZMK_BEHAVIOR(td_pls_ast, tap_dance,
 //MOD MORPH
 ZMK_BEHAVIOR(gesc, mod_morph,
     bindings = <&kp ESC>, <&kp GRAVE>;
-    mods = <(MOD_LGUI|MOD_LSFT|MOD_RGUI|MOD_RSFT)>;
-    keep-mods = <(MOD_LSFT|MOD_RSFT)>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
+    keep-mods = <MOD_RSFT>;
 )
 
 /* Homerow mods */
