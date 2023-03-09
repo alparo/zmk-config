@@ -85,6 +85,7 @@ ZMK_BEHAVIOR(td_pls_ast, tap_dance,
 )
 
 //MOD MORPH
+// grave escape
 ZMK_BEHAVIOR(gesc, mod_morph,
     bindings = <&kp ESC>, <&kp GRAVE>;
     mods = <(MOD_LSFT|MOD_RSFT)>;
@@ -95,7 +96,7 @@ ZMK_BEHAVIOR(bs_del, mod_morph,
     bindings = <&kp BSPC>, <&kp DEL>;
     mods = <(MOD_LSFT|MOD_RSFT|MOD_RCTL)>;
     keep-mods = <(MOD_LSFT|MOD_RCTL)>;
-
+)
 /* Homerow mods */
 
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LT5 LT6 LM0 LM1 LM2 LM3 LM4 LM5 LB0 LB1 LB2 LB3 LB4 LB5  // left-hand keys
