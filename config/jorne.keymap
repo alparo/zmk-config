@@ -65,8 +65,12 @@ ZMK_COMBO(combo_copy,  &kp LC(INS),  LB3 LB2,  DEF, COMBO_TERM_FAST)
 ZMK_COMBO(combo_paste, &kp LS(INS),  LB2 LB1,  DEF, COMBO_TERM_FAST)
 
 // Switch languages
-ZMK_COMBO(combo_lang1, &kp LC(LS(N1)),  LM1 LH0,  ALL, COMBO_TERM_FAST)
-ZMK_COMBO(combo_lang2, &kp LC(LS(N2)),  RM1 RH0,  ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_lang1, &kp LC(LS(N1)),  LM1 LM0,  ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_lang2, &kp LC(LS(N2)),  RM1 RM0,  ALL, COMBO_TERM_FAST)
+
+ZMK_COMBO(esc,   &kp ESC,       LT3 LT2,     DEF NAV NUM, COMBO_TERM_FAST)
+ZMK_COMBO(tab,   &kp TAB,       LT2 LT1,     DEF NAV NUM, COMBO_TERM_FAST)
+ZMK_COMBO(ret,   &kp RETURN,    LM2 LM1,     DEF NAV NUM, COMBO_TERM_FAST)
 
 
 // TAP DANCE
