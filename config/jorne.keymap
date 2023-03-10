@@ -115,10 +115,10 @@ ZMK_BEHAVIOR(lt_bspc, hold_tap,
 // tap: num-word | double-tap: sticky num-layer | hold: num-layer
 &num_word {  // num-word, requires PR #1441
     layers = <NUM>;
-    continue-list = <
+  /*  continue-list = <
         BACKSPACE DELETE DOT COMMA
         SLASH ASTERISK PLUS MINUS EQUAL
-    >;
+    >; */
 };
 ZMK_BEHAVIOR(num_dance, tap_dance,
     tapping-term-ms = <200>;
