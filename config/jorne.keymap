@@ -133,10 +133,10 @@ ZMK_BEHAVIOR(num_layer_word, hold_tap,
 #define NUM_WORD &num_layer_word NUM 0
 
 // tap: sticky-shift | shift + tap / double-tap: caps-word | hold: shift
-&caps_word {
+/*&caps_word {
     // Allow caps word to continue even when minus or underscore are pressed.
     continue-list = <UNDERSCORE MINUS>;
-};
+};*/
 ZMK_BEHAVIOR(ss_cw, mod_morph,
     bindings = <&sk LSHFT>, <&caps_word>;
     mods = <(MOD_LSFT)>;
