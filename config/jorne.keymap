@@ -115,6 +115,10 @@ ZMK_BEHAVIOR(lt_bspc, hold_tap,
 // tap: num-word | double-tap: sticky num-layer | hold: num-layer
 &num_word {  // num-word, requires PR #1441
     layers = <NUM>;
+    continue-list = <
+        BACKSPACE DELETE DOT COMMA
+        SLASH ASTERISK PLUS MINUS EQUAL
+    >;
 };
 ZMK_BEHAVIOR(num_dance, tap_dance,
     tapping-term-ms = <200>;
@@ -128,7 +132,11 @@ ZMK_BEHAVIOR(num_layer_word, hold_tap,
 )
 #define NUM_WORD &num_layer_word NUM 0
 
-// tap: sticky-shift | shift + tap/ double-tap: caps-word | hold: shift
+// tap: sticky-shift | shift + tap / double-tap: caps-word | hold: shift
+&caps_word {
+    // Allow caps word to continue even when minus or underscore are pressed.
+    continue-list = <UNDERSCORE MINUS>;
+};
 ZMK_BEHAVIOR(ss_cw, mod_morph,
     bindings = <&sk LSHFT>, <&caps_word>;
     mods = <(MOD_LSFT)>;
@@ -168,16 +176,16 @@ ZMK_LAYER(base,
 //       |  -  │  Z  │  X  │  C  │  V  │  B  │   │  N  │  M  │  ,  │  .  │  /  │  \  │
 //       ╰───────────│HK/TAB│NAV/SPC│NUM/SPC│   │NUM/ENT│NAV/BKSP│HK/DEL│───────────╯
 //                   ╰───────────────────────╯   ╰───────────────────────╯
-   &lt UC K_CANCEL &gesc      &kp Q &kp W &kp E &kp R &kp T &kp Y             &kp U  &kp I  &kp O   &kp P    &kp LBKT   &kp RBKT
-        	&kp LA(LC(TAB)) &hml LGUI A &hml LALT S &hml LSHIFT D &hml LCTRL F &kp G &kp H  &hmr RCTRL J &hmr RSHIFT K &hmr RALT L &hmr RGUI SEMI &kp SQT
-            &kp MINUS 	&kp Z &kp X &kp C &kp V &kp B               &kp N            &kp M  &kp COMMA    &kp DOT &kp FSLH &kp BSLH
-                            &lt HK TAB  NUM_WORD &lt HK SPACE 	    &ss_cw &lt_bspc NAV 0 &lt HK ENTER
+   &lt UC K_CANCEL &gesc      &kp Q &kp W &kp E &kp R &kp T &kp Y               &kp U   &kp I  &kp O   &kp P    &kp LBKT   &kp RBKT
+        	&kp LA(LC(TAB)) &hml LGUI A &hml LALT S &hml LSHIFT D &hml LCTRL F  &kp G   &kp H  &hmr RCTRL J &hmr RSHIFT K &hmr RALT L &hmr RGUI SEMI &kp SQT
+            &kp MINUS 	&kp Z &kp X &kp C &kp V &kp B                                   &kp N  &kp M  &kp COMMA    &kp DOT &kp FSLH &kp BSLH
+                                                &lt HK TAB  NUM_WORD &lt HK SPACE 	    &ss_cw &lt_bspc NAV 0 &lt HK ENTER
 )
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 ZMK_LAYER(numbers,
 // -------------------------------------------------------------------------------------------
 // |     |      |  =  |  7  |  8  |  9  | -// |    |  F6 |  F7 |  F8 |  F9 | F10 | F11 | F12 |
-//       |  ENT |  :  |  4  |  5  |  6  | +/* |    |  ^  |  &  |  *  |  (  |  )  |  -  |
+//       |  ENT |  :  |  4  |  5  |  6  | +/* |    |  ^  |CTR/&|SFT/*|ALT/(|GUI/)|  -  |
 //       | CALC |  .  |  1  |  2  |  3  |  0  |    |  6  |  7  |  8  |  9  |  0  |     |
 //                          |TRANS|TRANS|TRANS|    |TRANS|TRANS|TRANS|
    XXX 	XXX             &kp EQUAL  &kp N7 &kp N8 &kp N9 &td_mns_sls &kp F6      &kp F7   &kp F8   &kp F9   &kp F10  &kp F11 &kp F12 
@@ -189,20 +197,20 @@ ZMK_LAYER(numbers,
 ZMK_LAYER(navigation,
 // ----------------------------------------------------------------------------------------
 // |     |     |  F1 |  F2 |  F3 |  F4 |  F5 |   | HOME| PGDN| PGUP| END |     | VOLU |     |
-//       |     |  !  |  @  |  #  |  $  |  %  |   | LEFT| DOWN|  UP | RGHT|     | PLAY |
+//       |     |GUI/!|ALT/@|SFT/#|CTR/$|  %  |   | LEFT| DOWN|  UP | RGHT|     | PLAY |
 //       |     |  1  |  2  |  3  |  4  |  5  |   |C+LEFT|C+PGDN|C+PGUP|C+RGHT| | VOLD |
 //                         |TRANS|TRANS|TRANS|   |TRANS|TRANS|TRANS|
    XXX  XXX	        &kp F1      &kp F2 &kp F3   &kp F4      &kp F5      &kp HOME      &kp PG_DN   	&kp PG_UP       &kp END   		XXX &kp C_VOL_UP    ___
-        &kp EQUAL   &hml LGUI EXCL    &hml LALT AT &hml LSHIFT HASH &hml LCTRL DLLR    &kp PRCNT   &kp LEFT 	    &kp DOWN 	    &kp UP 		    &kp RIGHT 	    XXX &td_ply_nxt
+        &kp EQUAL   &hml LGUI EXCL    &hml LALT AT &hml LSHIFT HASH &hml LCTRL DLLR    &kp PRCNT   &kp LEFT 	    &kp DOWN 	    &kp UP &kp RIGHT    XXX &td_ply_nxt
         XXX         &kp N1      &kp N2 &kp N3   &kp N4      &kp N5      &kp LC(LEFT)  &kp LC(PG_DN)   &kp LC(PG_UP)   &kp LC(RIGHT)   XXX &kp C_VOL_DN
                                                         ___ ___ ___     ___ ___ ___
 )
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 ZMK_LAYER(hotkeys,
-   XXX  XXX XXX &kp LG(N7) &kp LG(N8) &kp LG(N9) XXX        XXX XXX XXX XXX XXX XXX XXX
-        XXX XXX &kp LG(N4) &kp LG(N5) &kp LG(N6) XXX        XXX XXX XXX XXX XXX XXX
-        XXX XXX &kp LG(N1) &kp LG(N2) &kp LG(N3) &kp LG(N0) XXX XXX XXX XXX XXX XXX
-                                        &mo ADJ ___ ___     ___ ___ &mo ADJ
+   XXX  XXX XXX &kp LG(N7) &kp LG(N8) &kp LG(N9) LG(LC(LEFT))   XXX XXX XXX XXX XXX XXX XXX
+        XXX XXX &kp LG(N4) &kp LG(N5) &kp LG(N6) LG(LC(RIGHT))  XXX XXX XXX XXX XXX XXX
+        XXX XXX &kp LG(N1) &kp LG(N2) &kp LG(N3) &kp LG(N0)     XXX XXX XXX XXX XXX XXX
+                                        ___ ___ ___     ___ ___ ___
 )
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 ZMK_LAYER(uc,
