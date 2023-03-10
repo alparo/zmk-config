@@ -115,10 +115,10 @@ ZMK_BEHAVIOR(lt_bspc, hold_tap,
 // tap: num-word | double-tap: sticky num-layer | hold: num-layer
 &num_word {  // num-word, requires PR #1441
     layers = <NUM>;
-  /*  continue-list = <
+    continue-list = <
         BACKSPACE DELETE DOT COMMA
         SLASH ASTERISK PLUS MINUS EQUAL
-    >; */
+    >;
 };
 ZMK_BEHAVIOR(num_dance, tap_dance,
     tapping-term-ms = <200>;
@@ -133,10 +133,10 @@ ZMK_BEHAVIOR(num_layer_word, hold_tap,
 #define NUM_WORD &num_layer_word NUM 0
 
 // tap: sticky-shift | shift + tap / double-tap: caps-word | hold: shift
-/*&caps_word {
+&caps_word {
     // Allow caps word to continue even when minus or underscore are pressed.
     continue-list = <UNDERSCORE MINUS>;
-};*/
+};
 ZMK_BEHAVIOR(ss_cw, mod_morph,
     bindings = <&sk LSHFT>, <&caps_word>;
     mods = <(MOD_LSFT)>;
@@ -207,8 +207,8 @@ ZMK_LAYER(navigation,
 )
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 ZMK_LAYER(hotkeys,
-   XXX  XXX XXX &kp LG(N7) &kp LG(N8) &kp LG(N9) LG(LC(LEFT))   XXX XXX XXX XXX XXX XXX XXX
-        XXX XXX &kp LG(N4) &kp LG(N5) &kp LG(N6) LG(LC(RIGHT))  XXX XXX XXX XXX XXX XXX
+   XXX  XXX XXX &kp LG(N7) &kp LG(N8) &kp LG(N9) &kp LG(LC(LEFT))   XXX XXX XXX XXX XXX XXX XXX
+        XXX XXX &kp LG(N4) &kp LG(N5) &kp LG(N6) &kp LG(LC(RIGHT))  XXX XXX XXX XXX XXX XXX
         XXX XXX &kp LG(N1) &kp LG(N2) &kp LG(N3) &kp LG(N0)     XXX XXX XXX XXX XXX XXX
                                         ___ ___ ___     ___ ___ ___
 )
