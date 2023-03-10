@@ -60,9 +60,10 @@ ZMK_UNICODE_PAIR(by_i, KP_N0, KP_N1,  KP_N7, KP_N9,    KP_N0, KP_N1,  KP_N7, KP_
 
 ZMK_COMBO(caps_word, &caps_word,  LM1 RM1,  DEF, COMBO_TERM_SLOW)
 
-ZMK_COMBO(combo_cut,   &kp LS(DEL),  LB3 LB1,  DEF, COMBO_TERM_SLOW)
-ZMK_COMBO(combo_copy,  &kp LC(INS),  LB3 LB2,  DEF, COMBO_TERM_FAST)
-ZMK_COMBO(combo_paste, &kp LS(INS),  LB2 LB1,  DEF, COMBO_TERM_FAST)
+ZMK_COMBO(combo_cut,   &kp LS(DEL),  LB3 LB1,   DEF, COMBO_TERM_SLOW)
+ZMK_COMBO(combo_copy,  &kp LC(INS),  LB3 LB2,   DEF, COMBO_TERM_FAST)
+ZMK_COMBO(combo_paste, &kp LS(INS),  LB2 LB1,   DEF, COMBO_TERM_FAST)
+ZMK_COMBO(combo_all,   &kp LC(A), LB3 LB2 LB1,  DEF, COMBO_TERM_FAST)
 
 // Switch languages
 ZMK_COMBO(combo_lang1, &kp LC(LS(N1)),  LM1 LM0,  ALL, COMBO_TERM_FAST)
@@ -125,6 +126,12 @@ ZMK_BEHAVIOR(num_layer_word, hold_tap,
 )
 #define NUM_WORD &num_layer_word NAV 0
 
+// tap: sticky-shift | shift + tap/ double-tap: caps-word | hold: shift
+ZMK_BEHAVIOR(ss_cw, mod_morph,
+    bindings = <&sk LSHFT>, <&caps_word>;
+    mods = <(MOD_LSFT)>;
+)
+
 /* Homerow mods */
 #define KEYS_L LT0 LT1 LT2 LT3 LT4 LT5 LT6 LM0 LM1 LM2 LM3 LM4 LM5 LB0 LB1 LB2 LB3 LB4 LB5  // left-hand keys
 #define KEYS_R RT0 RT1 RT2 RT3 RT4 RT5 RT6 RM0 RM1 RM2 RM3 RM4 RM5 RB0 RB1 RB2 RB3 RB4 RB5  // right-hand keys
@@ -162,7 +169,7 @@ ZMK_LAYER(base,
    &lt UC K_CANCEL &gesc      &kp Q &kp W &kp E &kp R &kp T &kp Y             &kp U  &kp I        &kp O   &kp P    &kp LBKT   &kp RBKT
         	&kp LA(LC(TAB)) &hml LGUI A &hml LALT S &hml LSHIFT D &hml LCTRL F &kp G &kp H &hmr RCTRL J &hmr RSHIFT K &hmr RALT L &hmr RGUI SEMI &kp SQT
             &kp MINUS 	&kp Z &kp X &kp C &kp V &kp B &kp N             &kp M  &kp COMMA    &kp DOT &kp FSLH &kp BSLH
-                        &lt HK TAB  NUM_WORD &lt NUM SPACE 	&lt NUM ENTER &lt_bspc NAV 0 &lt HK SPACE
+                        &lt HK TAB  NUM_WORD &lt NUM SPACE 	&lt NUM ENTER &lt_bspc NAV 0 &ss_cw
 )
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 ZMK_LAYER(numbers,
@@ -183,7 +190,7 @@ ZMK_LAYER(navigation,
 //       |  ENT |  :  |  4  |  5  |  6  | +/* |   | LEFT| DOWN|  UP | RGHT|     | PLAY |
 //       | CALC |  .  |  1  |  2  |  3  |  0  |   |C+LEFT|C+PGDN|C+PGUP|C+RGHT| | VOLD |
 //                          |     |     | ADJ |   | ADJ |     |     |
-   XXX 	XXX             &kp EQUAL   &kp N7 &kp N8 &kp N9 &td_mns_sls    &kp HOME    &kp PG_DN   	&kp PG_UP   &kp END   		XXX  &kp C_VOL_UP ___
+   XXX 	&kp C_PLAY_PAUSE &kp EQUAL   &kp N7 &kp N8 &kp N9 &td_mns_sls    &kp HOME    &kp PG_DN   	&kp PG_UP   &kp END   		XXX  &kp C_VOL_UP ___
         &kp ENTER    	&colon	    &kp N4 &kp N5 &kp N6 &td_pls_ast    &kp LEFT 	&kp DOWN 		&kp UP 		&kp RIGHT 		XXX &td_ply_nxt
         &kp C_AL_CALC   &kp KP_DOT 	&kp N1 &kp N2 &kp N3 &kp N0         &kp LC(LEFT) &kp LC(PG_DN) 	&kp LC(PG_UP) &kp LC(RIGHT) XXX &kp C_VOL_DN
                                                         ___ ___ ___   	___ ___ ___
