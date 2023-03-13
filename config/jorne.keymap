@@ -84,11 +84,11 @@ ZMK_BEHAVIOR(td_ply_nxt, tap_dance,
 )
 ZMK_BEHAVIOR(td_mns_sls, tap_dance,
     tapping-term-ms = <200>;
-    bindings = <&kp KP_MINUS>, <&kp KP_SLASH>;
+    bindings = <&kp MINUS>, <&kp SLASH>;
 )
 ZMK_BEHAVIOR(td_pls_ast, tap_dance,
     tapping-term-ms = <200>;
-    bindings = <&kp KP_PLUS>, <&kp KP_ASTERISK>;
+    bindings = <&kp PLUS>, <&kp STAR>;
 )
 
 // MOD MORPH
@@ -116,7 +116,7 @@ ZMK_BEHAVIOR(lt_bspc, hold_tap,
 &num_word {  // num-word, requires PR #1441
     layers = <NUM>;
     continue-list = <
-        BACKSPACE DELETE DOT COMMA
+        BACKSPACE DELETE DOT COMMA STAR KP_DOT
         SLASH ASTERISK PLUS MINUS EQUAL
     >;
 };
@@ -190,7 +190,7 @@ ZMK_LAYER(numbers,
 //                          |TRANS|TRANS|TRANS|    |TRANS|TRANS|TRANS|
    XXX 	XXX             &kp EQUAL  &kp N7 &kp N8 &kp N9 &td_mns_sls &kp F6      &kp F7   &kp F8   &kp F9   &kp F10  &kp F11 &kp F12 
         &kp ENTER    	&colon	   &kp N4 &kp N5 &kp N6 &td_pls_ast &kp CARET   &hmr RCTRL AMPS &hmr RSHIFT STAR &hmr RALT LPAR &hmr RGUI RPAR &kp MINUS
-        &kp C_AL_CALC   &kp KP_DOT &kp N1 &kp N2 &kp N3 &kp N0      &kp N6      &kp N7   &kp N8   &kp N9   &kp N0   XXX
+        &kp C_AL_CALC   &kp KP_DOT &kp N1 &kp N2 &kp N3 &kp N0      &kp KP_N6      &kp KP_N7   &kp KP_N8   &kp KP_N9   &kp KP_N0   XXX
                                                     ___ ___ ___ 	___ ___ ___
 )
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
@@ -200,9 +200,9 @@ ZMK_LAYER(navigation,
 //       |     |GUI/!|ALT/@|SFT/#|CTR/$|  %  |   | LEFT| DOWN|  UP | RGHT|     | PLAY |
 //       |     |  1  |  2  |  3  |  4  |  5  |   |C+LEFT|C+PGDN|C+PGUP|C+RGHT| | VOLD |
 //                         |TRANS|TRANS|TRANS|   |TRANS|TRANS|TRANS|
-   XXX  XXX	        &kp F1      &kp F2 &kp F3   &kp F4      &kp F5      &kp HOME      &kp PG_DN   	&kp PG_UP       &kp END   		XXX &kp C_VOL_UP    ___
-        &kp EQUAL   &hml LGUI EXCL    &hml LALT AT &hml LSHIFT HASH &hml LCTRL DLLR    &kp PRCNT   &kp LEFT 	    &kp DOWN 	    &kp UP &kp RIGHT    XXX &td_ply_nxt
-        XXX         &kp N1      &kp N2 &kp N3   &kp N4      &kp N5      &kp LC(LEFT)  &kp LC(PG_DN)   &kp LC(PG_UP)   &kp LC(RIGHT)   XXX &kp C_VOL_DN
+   XXX  XXX	        &kp F1      &kp F2 &kp F3   &kp F4      &kp F5                  &kp HOME    &kp PG_DN   	&kp PG_UP       &kp END   		XXX &kp C_VOL_UP ___
+        &kp KP_EQUAL   &hml LGUI EXCL  &hml LALT AT &hml LSHIFT HASH &hml LCTRL DLLR   &kp PRCNT   &kp LEFT 	    &kp DOWN 	    &kp UP &kp RIGHT    XXX &td_ply_nxt
+        XXX         &kp KP_N1   &kp KP_N2 &kp KP_N3 &kp KP_N4 &kp KP_N5             &kp LC(LEFT)  &kp LC(PG_DN)   &kp LC(PG_UP)   &kp LC(RIGHT)   XXX &kp C_VOL_DN
                                                         ___ ___ ___     ___ ___ ___
 )
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
