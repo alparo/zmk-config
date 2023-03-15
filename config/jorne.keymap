@@ -40,7 +40,9 @@
 ZMK_CONDITIONAL_LAYER(NUM NAV, ADJ)    // NUM + NAV --> ADJ
 
 // unicode colon
-ZMK_UNICODE_SINGLE(colon, KP_N0, KP_N0, KP_N5, KP_N8)  // :
+ZMK_UNICODE_SINGLE(u_colon, KP_N0, KP_N0, KP_N5, KP_N8)  // :
+ZMK_UNICODE_SINGLE(u_dot,   KP_N0, KP_N0, KP_N4, KP_N6)  // .
+ZMK_UNICODE_SINGLE(u_comma, KP_N0, KP_N0, KP_N4, KP_N4)  // ,
 
 // Belarussian letters
 ZMK_UNICODE_PAIR(by_y, KP_N0, KP_N1,  KP_N6, KP_N2,    KP_N0, KP_N1,  KP_N6, KP_N1)  // ў/Ў
@@ -91,6 +93,13 @@ ZMK_BEHAVIOR(td_pls_ast, tap_dance,
     bindings = <&kp PLUS>, <&kp STAR>;
 )
 
+// MACRO
+ZMK_BEHAVIOR(dot_spc, macro,
+    wait-ms = <0>;
+    tap-ms = <5>;
+    bindings = <&u_dot &kp SPACE &sk LSHFT>;
+)
+
 // MOD MORPH
 // grave escape
 ZMK_BEHAVIOR(gesc, mod_morph,
@@ -107,6 +116,17 @@ ZMK_BEHAVIOR(gesc, mod_morph,
 ZMK_BEHAVIOR(ss_cw, mod_morph,
     bindings = <&sk LSHFT>, <&caps_word>;
     mods = <(MOD_LSFT)>;
+)
+
+// tap: space | shift + tap: comma -> space
+ZMK_BEHAVIOR(comma_spc, macro,
+    wait-ms = <0>;
+    tap-ms = <5>;
+    bindings = <&u_comma &kp SPACE>;
+)
+ZMK_BEHAVIOR(spc_morph, mod_morph,
+    bindings = <&kp SPACE>, <&comma_spc>;
+    mods = <(MOD_LSFT|MOD_RSFT)>;
 )
 
 /* Homerow mods */
@@ -146,7 +166,7 @@ ZMK_LAYER(base,
    &lt UC K_CANCEL &gesc      &kp Q &kp W &kp E &kp R &kp T &kp Y               &kp U   &kp I  &kp O   &kp P    &kp LBKT   &kp RBKT
         	&kp LA(LC(TAB)) &hml LGUI A &hml LALT S &hml LSHIFT D &hml LCTRL F  &kp G   &kp H  &hmr RCTRL J &hmr RSHIFT K &hmr RALT L &hmr RGUI SEMI &kp SQT
             &kp MINUS 	&kp Z &kp X &kp C &kp V &kp B                                   &kp N  &kp M  &kp COMMA    &kp DOT &kp FSLH &kp BSLH
-                                                &lt HK TAB  &lt NAV RETURN &lt HK SPACE 	    &ss_cw &lt NAV BSPC &lt HK DEL
+                                                &lt HK TAB  &lt NAV RETURN &lt HK spc_morph 	    &ss_cw &lt NAV BSPC &lt HK DEL
 )
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 ZMK_LAYER(numbers,
@@ -156,7 +176,7 @@ ZMK_LAYER(numbers,
 //       | CALC |  .  |  1  |  2  |  3  |  0  |    |  6  |  7  |  8  |  9  |  0  |     |
 //                          |TRANS|TRANS|TRANS|    |TRANS|TRANS|TRANS|
    XXX 	XXX             &kp EQUAL  &kp N7 &kp N8 &kp N9 &td_mns_sls &kp F6      &kp F7   &kp F8   &kp F9   &kp F10  &kp F11 &kp F12 
-        &kp ENTER    	&colon	   &kp N4 &kp N5 &kp N6 &td_pls_ast &kp CARET   &hmr RCTRL AMPS &hmr RSHIFT STAR &hmr RALT LPAR &hmr RGUI RPAR &kp MINUS
+        &kp ENTER    	&u_colon	   &kp N4 &kp N5 &kp N6 &td_pls_ast &kp CARET   &hmr RCTRL AMPS &hmr RSHIFT STAR &hmr RALT LPAR &hmr RGUI RPAR &kp MINUS
         &kp C_AL_CALC   &kp KP_DOT &kp N1 &kp N2 &kp N3 &kp N0      &kp KP_N6      &kp KP_N7   &kp KP_N8   &kp KP_N9   &kp KP_N0   XXX
                                                     ___ ___ ___ 	___ ___ ___
 )
@@ -177,7 +197,7 @@ ZMK_LAYER(hotkeys,
    XXX  XXX XXX &kp LG(N7) &kp LG(N8) &kp LG(N9) &kp LG(LC(LEFT))   XXX XXX XXX XXX XXX XXX XXX
         XXX XXX &kp LG(N4) &kp LG(N5) &kp LG(N6) &kp LG(LC(RIGHT))  XXX XXX XXX XXX XXX XXX
         XXX XXX &kp LG(N1) &kp LG(N2) &kp LG(N3) &kp LG(N0)     XXX XXX XXX XXX XXX XXX
-                                        ___ ___ ___     ___ ___ ___
+                                        ___ ___ ___     &dot_spc ___ ___
 )
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 ZMK_LAYER(uc,
