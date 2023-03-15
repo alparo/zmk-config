@@ -122,7 +122,7 @@ ZMK_BEHAVIOR(ss_cw, mod_morph,
 ZMK_BEHAVIOR(comma_spc, macro,
     wait-ms = <0>;
     tap-ms = <5>;
-    bindings = <&COMMA &kp SPACE>;
+    bindings = <&kp COMMA &kp SPACE>;
 )
 ZMK_BEHAVIOR(spc_morph, mod_morph,
     bindings = <&kp SPACE>, <&comma_spc>;
