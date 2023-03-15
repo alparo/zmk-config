@@ -37,6 +37,10 @@
     quick-tap-ms = <QUICK_TAP_MS>;
 };
 
+&sk {
+    quick-release;
+};
+
 ZMK_CONDITIONAL_LAYER(NUM NAV, ADJ)    // NUM + NAV --> ADJ
 
 // unicode colon
@@ -61,8 +65,6 @@ ZMK_UNICODE_PAIR(by_i, KP_N0, KP_N1,  KP_N7, KP_N9,    KP_N0, KP_N1,  KP_N7, KP_
 
 #define COMBO_TERM_FAST 20
 #define COMBO_TERM_SLOW 35
-
-ZMK_COMBO(caps_word, &caps_word,  LM1 RM1,  DEF, COMBO_TERM_SLOW)
 
 ZMK_COMBO(combo_cut,   &kp LS(DEL),  LB3 LB1,   DEF, COMBO_TERM_SLOW)
 ZMK_COMBO(combo_copy,  &kp LC(INS),  LB3 LB2,   DEF, COMBO_TERM_FAST)
@@ -123,10 +125,11 @@ ZMK_BEHAVIOR(comma_spc, macro,
     wait-ms = <0>;
     tap-ms = <5>;
     bindings
-    = <&macro_press &kp LALT>
-    , <&macro_tap &kp KP_N4 &kp KP_N4>
-    , <&macro_release &kp LALT>
-    , <&macro_tap &kp SPACE>;
+    = <&u_comma &kp SPACE>;
+   // = <&macro_press &kp LALT>
+    //, <&macro_tap &kp KP_N4 &kp KP_N4>
+    //, <&macro_release &kp LALT>
+    //, <&macro_tap &kp SPACE>;
 )
 ZMK_BEHAVIOR(spc_morph, mod_morph,
     bindings = <&kp SPACE>, <&comma_spc>;
