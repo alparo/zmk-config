@@ -122,11 +122,7 @@ ZMK_BEHAVIOR(ss_cw, mod_morph,
 ZMK_BEHAVIOR(comma_spc, macro,
     wait-ms = <0>;
     tap-ms = <5>;
-    bindings
-    = <&macro_press &kp LALT>
-    , <&macro_tap &kp KP_N4 &kp KP_N4>
-    , <&macro_release &kp LALT>
-    , <&macro_tap &kp SPACE>;
+    bindings = <&u_comma &kp SPACE>;
 )
 ZMK_BEHAVIOR(spc_morph, mod_morph,
     bindings = <&kp SPACE>, <&comma_spc>;
@@ -176,7 +172,7 @@ ZMK_LAYER(base,
    &lt UC K_CANCEL &gesc      &kp Q &kp W &kp E &kp R &kp T &kp Y               &kp U   &kp I  &kp O   &kp P    &kp LBKT   &kp RBKT
         	&kp LA(LC(TAB)) &hml LGUI A &hml LALT S &hml LSHIFT D &hml LCTRL F  &kp G   &kp H  &hmr RCTRL J &hmr RSHIFT K &hmr RALT L &hmr RGUI SEMI &kp SQT
             &kp MINUS 	&kp Z &kp X &kp C &kp V &kp B                                   &kp N  &kp M  &kp COMMA    &kp DOT &kp FSLH &kp BSLH
-                                                &lt HK TAB  &lt NUM RETURN &lt_spc HK 0 	    &ss_cw &lt NAV BSPC &lt HK DEL
+                                                &lt HK TAB  &lt NUM RETURN &spc_morph 	    &ss_cw &lt NAV BSPC &lt HK DEL
 )
 // ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
 ZMK_LAYER(numbers,
