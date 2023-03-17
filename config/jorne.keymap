@@ -72,8 +72,8 @@ ZMK_COMBO(combo_paste, &kp LS(INS),  LB2 LB1,   DEF, COMBO_TERM_FAST)
 ZMK_COMBO(combo_all,   &kp LC(A), LB3 LB2 LB1,  DEF, COMBO_TERM_FAST)
 
 // Switch languages
-ZMK_COMBO(combo_lang1, &kp LC(LS(N1)),  LM1 LT2,  ALL, COMBO_TERM_FAST)
-ZMK_COMBO(combo_lang2, &kp LC(LS(N2)),  RM1 RT2,  ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_lang1, &kp LC(LS(N1)),  LM1 LM2,  ALL, COMBO_TERM_FAST)
+ZMK_COMBO(combo_lang2, &kp LC(LS(N2)),  RM1 RM2,  ALL, COMBO_TERM_FAST)
 
 //ZMK_COMBO(esc,   &kp ESC,       LT3 LT2,     DEF NAV NUM, COMBO_TERM_FAST)
 //ZMK_COMBO(tab,   &kp TAB,       LT2 LT1,     DEF NAV NUM, COMBO_TERM_FAST)
@@ -88,7 +88,7 @@ ZMK_BEHAVIOR(td_ply_nxt, tap_dance,
 )
 ZMK_BEHAVIOR(td_mns_sls, tap_dance,
     tapping-term-ms = <200>;
-    bindings = <&kp MINUS>, <&kp SLASH>;
+    bindings = <&kp MINUS>, <&kp KP_SLASH>;
 )
 ZMK_BEHAVIOR(td_pls_ast, tap_dance,
     tapping-term-ms = <200>;
